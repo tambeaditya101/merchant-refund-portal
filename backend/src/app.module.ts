@@ -11,7 +11,7 @@ import { TransactionsModule } from './transactions/transactions.module';
     MerchantsModule,
     AuthModule,
     TransactionsModule,
-    AppController,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
