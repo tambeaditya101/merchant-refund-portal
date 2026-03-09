@@ -6,9 +6,7 @@ import { TransactionsModule } from './transactions/transactions.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      process.env.MONGO_URI || 'mongodb://localhost:27017/refund_portal',
-    ),
+    MongooseModule.forRoot(process.env.MONGO_URI as string),
     MerchantsModule,
     AuthModule,
     TransactionsModule,
