@@ -1,10 +1,15 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { MongooseModule } from '@nestjs/mongoose';
+import { AuthModule } from './auth/auth.module';
+import { MerchantsModule } from './merchants/merchants.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    MongooseModule.forRoot(
+      process.env.MONGO_URI || 'mongodb://localhost:27017/refund_portal',
+    ),
+    MerchantsModule,
+    AuthModule,
+  ],
 })
 export class AppModule {}
